@@ -23,4 +23,4 @@ Endpoints:
 
 ============
 Using Flask with SQLAlchemy and Marshmallow to create a RESTful API.
-Front end TBD.
+Simple front end using basic HTML/CSS/Javascript.

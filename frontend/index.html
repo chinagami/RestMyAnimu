@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAnimu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="logo">My<span>Animu</span></div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <button title="View all anime" id="allAnime">All Anime</button>
+                </li>
+                <li>
+                    <button title="Add anime" id="addAnime">Add Anime</button>
+                </li>
+                <li>
+                    <select name="status" id="statusAnime">
+                        <option value="status" selected disabled>Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="watching">Watching</option>
+                        <option value="planning">Planning</option>
+                        <option value="dropped">Dropped</option>
+                    </select>
+                </li>
+                <li>
+                    <button title="Sort by rating" id=ratingAnime>Rating</button>
+                </li>
+            </ul>
+        </div>
+        
+        <table id="anime-list">
+            <thead>
+                <th>Anime Title</th>
+                <th>Rating</th>
+                <th>Status</th>
+                <th>Comment</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+</body>
+<footer>
+    <script src="script.js"></script>
+</footer>
+</html>

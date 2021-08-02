@@ -1,6 +1,7 @@
 from app import app, db
 from flask import request, jsonify
 from models import *
+from sqlalchemy import desc
 
 # Check if anime ID exists
 def find_anime_id(id):
@@ -32,15 +33,15 @@ def add_animu():
 @app.route('/animu', methods=['GET'])
 def get_animu():
     # search by query string if exists
-    # return by rating
-    if request.args.get('rating'):
-        rated_anime = Anime.query.filter_by(rating=request.args.get('rating')).all()
-        return animus_schema.jsonify(rated_anime)
     # return by status
     if request.args.get('status'):
-        print(request.args.get('status'))
-        status_anime = Anime.query.filter_by(status=request.args.get('status')).all()
+        status_anime = Anime.query.filter_by(status=request.args.get('status').capitalize()).all()
         return animus_schema.jsonify(status_anime)
+
+    # order by rating
+    if request.args.get('rating'):
+        order_rating_anime = Anime.query.order_by(desc(Anime.rating)).all()
+        return animus_schema.jsonify(order_rating_anime)
 
     # get all by default
     all_anime = Anime.query.all()
