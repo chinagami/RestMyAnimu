@@ -136,7 +136,7 @@ function editAnime(e){
     var selectStatus = document.getElementById("status" + rowId);
     selectStatus.value = curStatus;
 
-    comment.innerHTML = "<input type='text' id='comment" + rowId + "' placeholder='Comment' name='comment' value=" + curComment + ">"
+    comment.innerHTML = "<input type='text' id='comment" + rowId + "' placeholder='Comment' name='comment' value='" + curComment + "'>"
 };
 
 // Save edited anime and PUT request
