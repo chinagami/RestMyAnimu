@@ -16,7 +16,7 @@ def add_animu():
     status = request.json['status'].capitalize()
     comment = request.json['comment']
 
-    ratings = [1,2,3,4,5,6,7,8,9,10]
+    ratings = ["-", "1","2","3","4","5","6","7","8","9","10"]
     statuses = ["Completed", "Watching", "Dropped", "Planning"]
 
     if status not in statuses or rating not in ratings:

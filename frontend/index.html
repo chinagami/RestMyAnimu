@@ -28,17 +28,45 @@
                     </select>
                 </li>
                 <li>
-                    <button title="Sort by rating" id=ratingAnime>Rating</button>
+                    <button title="Sort by rating" id=ratingAnime>Sort by Rating</button>
                 </li>
             </ul>
         </div>
         
+        <form id="animeForm" name="animeForm">
+            <input type="text" placeholder="Title" id="title" required name="title">
+            <label>Rating:</label>
+            <select id="rating" name="rating">
+                <option value="-" selected>-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <select name="status">
+                <option value="status" selected disabled>Status</option>
+                <option value="completed">Completed</option>
+                <option value="watching">Watching</option>
+                <option value="planning">Planning</option>
+                <option value="dropped">Dropped</option>
+            </select>
+            <input type="text" placeholder="Comment" id="comment" name="comment">
+            <input type="submit" value="Submit">
+        </form>
+
         <table id="anime-list">
             <thead>
                 <th>Anime Title</th>
                 <th>Rating</th>
                 <th>Status</th>
                 <th>Comment</th>
+                <th></th>
             </thead>
             <tbody></tbody>
         </table>

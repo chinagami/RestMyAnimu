@@ -31,12 +31,12 @@ section {
 
 /* menu items */
 .menu {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     width: 700px;
     text-align: center;
 }
 
-.menu button, select {
+.menu #statusAnime, button {
     background-color: rgb(200, 0, 0, 0.8);
     border: none;
     color: white;
@@ -50,7 +50,20 @@ section {
 .menu ul li {
     list-style: none;
     display: inline;
-    margin: 0 10px;
+    margin: 0 10px 0 0;
+}
+
+
+/* edit / del */
+.menu-mini {
+    background-color: rgb(200, 0, 0, 0.6);
+    border: none;
+    color: white;
+    padding: 2px 2px; 
+    text-decoration: none;
+    font-size: 0.7rem;
+    cursor: pointer;
+    font-weight: 550;
 }
 
 /* table */
@@ -66,5 +79,15 @@ section {
 }
 
 #anime-list tbody {
+    font-size: 0.8rem;
+}
+
+/* Add anime form */
+#animeForm {
+    text-align: center;
+    margin: 5px 0 5px;
+}
+
+#animeForm label {
     font-size: 0.8rem;
 }
