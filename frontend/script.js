@@ -25,8 +25,11 @@ function popAnimeList(url){
                 <button id=\"save"+ row.id +"\" onclick=\"saveAnime(this)\" class=\"menu-mini\" hidden>save</button> \
                 <button onclick=\"deleteAnime(this)\" class=\"menu-mini\">del</button>"
         }
-        
     }).catch(err => console.error("Error", err));
+}
+
+function resetStatus(){
+    document.getElementById("statusAnime").value = "status";
 }
 
 // Init the page and load all animes
@@ -34,10 +37,12 @@ document.getElementsByTagName("body").onload = popAnimeList(url);
 
 // Load all anime
 document.getElementById("allAnime").addEventListener("click", () => {
+    resetStatus();
     popAnimeList(url)});
 
 // Order by rating
 document.getElementById("ratingAnime").addEventListener("click", () => {
+    resetStatus();
     popAnimeList(url + '?rating=1')});
 
 // Get anime by status
@@ -55,10 +60,10 @@ function deleteAnime(e){
     // b.appendChild(t);
     // e.parentNode.append(b);
     // e.innerHTML = "yes";
-    
     fetch(url + "/" + id, {
         method: "DELETE"
     });
+    resetStatus();
 };
 
 // Add anime button
@@ -86,6 +91,7 @@ animeForm.addEventListener("submit", async (e) => {
     console.log(result);
     // reset form after submission
     animeForm.reset();
+    resetStatus();
 });
 
 // Edit anime in the table
@@ -163,6 +169,7 @@ async function saveAnime(e){
     const result = await r.json();
     console.log(result);
     
+    resetStatus();
     // this reloads the page if no changes occur
     popAnimeList(url);
 }
