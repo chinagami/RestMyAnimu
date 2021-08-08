@@ -1,11 +1,12 @@
 from app import app, db
-from flask import request, jsonify
+from flask import request, jsonify, abort
 from models import *
 from sqlalchemy import desc
 
 # Check if anime ID exists
 def find_anime_id(id):
-    return Anime.query.filter_by(id=id).first()
+    if Anime.query.filter_by(id=id).first():
+        abort(404,response=({'Error':'Anime not found!'}))
 
 # Add an anime
 @app.route('/animu', methods=['POST'])
@@ -50,16 +51,14 @@ def get_animu():
 # Return single anime by ID
 @app.route('/animu/<id>', methods=['GET'])
 def get_single_animu(id):
-    if not find_anime_id(id):
-        return jsonify({'Error':'Anime not found!'})
+    find_anime_id(id)
     single_anime = Anime.query.get(id)
     return animu_schema.jsonify(single_anime)
 
 # Update anime
 @app.route('/animu/<id>', methods=['PUT'])
 def update_animu(id):
-    if not find_anime_id(id):
-        return jsonify({'Error':'Anime not found!'})
+    find_anime_id(id)
     update_anime = Anime.query.get(id)
     title = request.json['title']
     rating = request.json['rating']
@@ -78,8 +77,7 @@ def update_animu(id):
 # Delete an anime
 @app.route('/animu/<id>', methods=['DELETE'])
 def delete_animu(id):
-    if not find_anime_id(id):
-        return jsonify({'Error':'Anime not found!'})
+    find_anime_id(id)
     delete_anime = Anime.query.get(id)
     db.session.delete(delete_anime)
     db.session.commit()
