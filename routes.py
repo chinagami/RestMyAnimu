@@ -5,7 +5,7 @@ from sqlalchemy import desc
 
 # Check if anime ID exists
 def find_anime_id(id):
-    if Anime.query.filter_by(id=id).first():
+    if not Anime.query.filter_by(id=id).first():
         abort(404,response=({'Error':'Anime not found!'}))
 
 # Add an anime

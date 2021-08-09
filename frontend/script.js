@@ -53,17 +53,12 @@ document.getElementById("statusAnime").addEventListener("change", () => {
 // Delete anime by ID
 function deleteAnime(e){
     id = e.parentNode.parentNode.id;
-    // TODO: are you sure?
-    // var b = document.createElement("button");
-    // b.classList.add("menu-mini");
-    // var t = document.createTextNode("no");
-    // b.appendChild(t);
-    // e.parentNode.append(b);
-    // e.innerHTML = "yes";
-    fetch(url + "/" + id, {
-        method: "DELETE"
-    });
-    resetStatus();
+    if (confirm("Delete anime?")){
+        fetch(url + "/" + id, {
+            method: "DELETE"
+        });
+        resetStatus();
+    }
 };
 
 // Add anime button
